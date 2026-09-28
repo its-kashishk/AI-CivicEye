@@ -1,0 +1,173 @@
+# ============================================
+# AI CivicEye — Git Ignore
+# ============================================
+
+# -----------------------------
+# Dependencies
+# -----------------------------
+node_modules/
+.pnp/
+.pnp.js
+
+# -----------------------------
+# Next.js
+# -----------------------------
+.next/
+out/
+build/
+
+# -----------------------------
+# Production
+# -----------------------------
+dist/
+
+# -----------------------------
+# Environment variables / Secrets
+# -----------------------------
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Keep example environment file
+!.env.example
+
+# -----------------------------
+# Logs
+# -----------------------------
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# -----------------------------
+# Database / Local data
+# -----------------------------
+*.db
+*.sqlite
+*.sqlite3
+
+# -----------------------------
+# Drizzle local artifacts
+# -----------------------------
+drizzle/meta/
+
+# -----------------------------
+# Testing / Coverage
+# -----------------------------
+coverage/
+.nyc_output/
+playwright-report/
+test-results/
+
+# -----------------------------
+# TypeScript
+# -----------------------------
+*.tsbuildinfo
+next-env.d.ts
+
+# -----------------------------
+# IDE / Editors
+# -----------------------------
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# -----------------------------
+# OS files
+# -----------------------------
+Thumbs.db
+Desktop.ini
+
+# -----------------------------
+# Temporary files
+# -----------------------------
+*.tmp
+*.temp
+*.bak
+*.swp
+
+# -----------------------------
+# Python
+# -----------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
+ENV/
+
+# -----------------------------
+# Jupyter
+# -----------------------------
+.ipynb_checkpoints/
+
+# -----------------------------
+# ML / AI generated artifacts
+# -----------------------------
+models/
+checkpoints/
+artifacts/
+outputs/
+runs/
+
+# Large model/data files
+*.pt
+*.pth
+*.ckpt
+*.onnx
+*.h5
+*.pkl
+*.joblib
+
+# -----------------------------
+# Large datasets
+# -----------------------------
+data/raw/
+data/processed/
+
+*.csv
+*.parquet
+*.zip
+*.tar
+*.tar.gz
+
+# Keep dataset documentation/configs
+!docs/
+!*.md
+
+# -----------------------------
+# Uploads / user-generated files
+# -----------------------------
+uploads/
+public/uploads/
+tmp/
+
+# -----------------------------
+# Local cache
+# -----------------------------
+.cache/
+.parcel-cache/
+.turbo/
+
+# -----------------------------
+# Vercel
+# -----------------------------
+.vercel/
+
+# -----------------------------
+# Misc
+# -----------------------------
+*.orig
+*.rej
