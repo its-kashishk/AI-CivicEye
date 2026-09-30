@@ -1,15 +1,38 @@
-import { asc } from "drizzle-orm";
+import { NextResponse } from "next/server";
 import { db } from "@/db";
-import { department } from "@/db/schema";
-import { requireUser } from "@/lib/auth";
-import { route } from "@/lib/http";
-import { ok } from "@/lib/respond";
+import { departments } from "@/db/schema";
+import { CANONICAL_DEPARTMENTS } from "@/lib/constants";
 
-/** GET /api/departments — canonical departments and the categories they handle. */
-export const GET = route(async (req) => {
-  await requireUser(req);
-  const rows = await db.select().from(department).orderBy(asc(department.name));
-  return ok({
-    items: rows.map((d) => ({ id: d.id, code: d.code, name: d.name, default_categories: d.defaultCategories })),
-  });
-});
+export const dynamic = "force-dynamic";
+
+export async function GET() {
+  try {
+    let allDepts = await db.select().from(departments);
+
+    if (allDepts.length === 0) {
+      // Seed canonical departments
+      for (const d of CANONICAL_DEPARTMENTS) {
+        await db.insert(departments).values({
+          code: d.code,
+          name: d.name,
+          defaultCategories: d.categories,
+        }).onConflictDoNothing();
+      }
+      allDepts = await db.select().from(departments);
+    }
+
+    return NextResponse.json({ departments: allDepts });
+  } catch (error) {
+    console.error("Departments fetch error:", error);
+    return NextResponse.json(
+      {
+        error: {
+          code: "INTERNAL",
+          message: "Failed to fetch departments",
+          retryable: true,
+        },
+      },
+      { status: 500 }
+    );
+  }
+}
