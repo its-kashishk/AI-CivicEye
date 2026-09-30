@@ -52,6 +52,7 @@ AI CivicEye is a multimodal AI-powered civic grievance redressal platform that h
 * [Project Status](#project-status)
 * [Contributing](#contributing)
 * [License](#license)
+* [Team](#team)
 
 ---
 
@@ -1075,6 +1076,35 @@ All major architectural, database, API, and AI-related changes should be coordin
 This project is currently developed as an academic / prototype project.
 
 Add an explicit open-source license here if the repository is later released under one.
+
+---
+
+# Team
+
+AI CivicEye is a collaborative team project with dedicated responsibilities across leadership, research, documentation, and frontend/user experience.
+
+| Team Member        | Role                       | Primary Responsibility                                                                    |
+| ------------------ | -------------------------- | ----------------------------------------------------------------------------------------- |
+| **Rafiya Ansari**  | Team Lead                  | Team coordination, project leadership, integration, and overall project direction         |
+| **Sana Usmani**    | Documentation Lead         | Project documentation, technical documentation, and documentation coordination            |
+| **Kashish Kamaal** | Frontend + User Experience | Citizen interface, authority dashboard, UI/UX, frontend integration, and frontend testing |
+| **Hajra Khan**     | Research Lead              | Research, problem analysis, domain research, and supporting technical/project decisions   |
+
+## Team Responsibilities
+
+The team works collaboratively across the complete AI CivicEye development lifecycle, including:
+
+* Problem analysis and research
+* Product and system design
+* Frontend and user experience
+* Backend and API integration
+* AI/ML integration
+* Documentation
+* Testing and validation
+* Deployment preparation
+* Final project integration
+
+Individual responsibilities are divided by ownership area while maintaining shared collaboration for integration, testing, and final delivery.
 
 ---
 
