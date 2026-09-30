@@ -1,6 +1,7 @@
 # AI CivicEye — Intelligent Civic Complaint & Prioritization System
 
 **Hackathon PS:** PS 5 — AI Innovation for Public Services & Citizen-Centric Governance
+
 **Areas:** Citizen grievance redressal · Urban governance
 
 > **Status:** This repository currently contains a **Next.js (App Router) + PostgreSQL (Drizzle ORM) scaffold** plus the full **design documentation** for AI CivicEye. The AI CivicEye application features are **`[PROPOSED]` / not yet implemented**. Status labels used throughout: `[PROPOSED]` `[PLANNED]` `[IMPLEMENTED]` `[VERIFIED]` `[REQUIRES VERIFICATION]`.
