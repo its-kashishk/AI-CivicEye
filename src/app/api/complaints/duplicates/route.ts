@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { db } from "@/db";
-import { duplicateClusters, complaints, locations, departments } from "@/db/schema";
+import { duplicateCluster, complaint, location, department } from "@/db/schema";
 import { desc, eq } from "drizzle-orm";
 
 export const dynamic = "force-dynamic";
@@ -9,22 +9,22 @@ export async function GET() {
   try {
     const clusterRows = await db
       .select()
-      .from(duplicateClusters)
-      .orderBy(desc(duplicateClusters.size), desc(duplicateClusters.createdAt));
+      .from(duplicateCluster)
+      .orderBy(desc(duplicateCluster.size), desc(duplicateCluster.createdAt));
 
     const clustersWithMembers = await Promise.all(
       clusterRows.map(async (cluster) => {
         const memberComplaints = await db
           .select({
-            complaint: complaints,
-            location: locations,
-            department: departments,
+            complaint: complaint,
+            location: location,
+            department: department,
           })
-          .from(complaints)
-          .leftJoin(locations, eq(complaints.locationId, locations.id))
-          .leftJoin(departments, eq(complaints.departmentId, departments.id))
-          .where(eq(complaints.clusterId, cluster.id))
-          .orderBy(desc(complaints.createdAt));
+          .from(complaint)
+          .leftJoin(location, eq(complaint.locationId, location.id))
+          .leftJoin(department, eq(complaint.departmentId, department.id))
+          .where(eq(complaint.clusterId, cluster.id))
+          .orderBy(desc(complaint.createdAt));
 
         const representative = memberComplaints.find(
           (m) => m.complaint.id === cluster.representativeComplaintId
